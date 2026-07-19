@@ -1,25 +1,21 @@
 from fastapi import FastAPI
-from sqlalchemy import text
 
-from app.core.config import settings
+from app.auth.routes import router as auth_router
 from app.database.connection import engine
+from app.database.base import Base
 
 app = FastAPI(
     title="CortexOS API",
-    version="1.0.0",
+    version="1.0.0"
 )
 
+Base.metadata.create_all(bind=engine)
 
-@app.on_event("startup")
-def startup():
-    with engine.connect() as connection:
-        connection.execute(text("SELECT 1"))
-    print("✅ Database connected successfully!")
+app.include_router(auth_router)
 
 
 @app.get("/")
 def root():
     return {
-        "message": "Welcome to CortexOS API",
-        "database": settings.DATABASE_NAME,
+        "message": "Welcome to CortexOS API"
     }
