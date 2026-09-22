@@ -1,25 +1,28 @@
 from logging.config import fileConfig
 
 from sqlalchemy import create_engine, pool
-
 from alembic import context
 
 from app.core.config import settings
 from app.database.base import Base
-from app.auth.models import User
 
-# Alembic Config object
+from app.auth.models import User
+from app.organizations.models import Organization
+from app.workspaces.models import Workspace
+from app.documents.models import Document
+from app.document_chunks.models import DocumentChunk
+
+
 config = context.config
 
-# Configure logging
+
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Metadata for autogenerate
+
 target_metadata = Base.metadata
 
 
-# Database URL from .env
 DATABASE_URL = (
     f"postgresql+psycopg2://"
     f"{settings.DATABASE_USER}:"
@@ -31,13 +34,13 @@ DATABASE_URL = (
 
 
 def run_migrations_offline() -> None:
-    """Run migrations in offline mode."""
-
     context.configure(
         url=DATABASE_URL,
         target_metadata=target_metadata,
         literal_binds=True,
-        dialect_opts={"paramstyle": "named"},
+        dialect_opts={
+            "paramstyle": "named"
+        },
     )
 
     with context.begin_transaction():
@@ -45,8 +48,6 @@ def run_migrations_offline() -> None:
 
 
 def run_migrations_online() -> None:
-    """Run migrations in online mode."""
-
     connectable = create_engine(
         DATABASE_URL,
         poolclass=pool.NullPool,

@@ -1,12 +1,11 @@
 import uuid
 from datetime import datetime
-
+from sqlalchemy.orm import relationship
 from sqlalchemy import Boolean, DateTime, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.database.base import Base
-
 
 class User(Base):
     __tablename__ = "users"
@@ -48,7 +47,11 @@ class User(Base):
         Boolean,
         default=False,
     )
-
+    organizations = relationship(
+    "Organization",
+    back_populates="owner",
+    cascade="all, delete-orphan",
+)
     created_at: Mapped[datetime] = mapped_column(
         DateTime,
         default=datetime.utcnow,
