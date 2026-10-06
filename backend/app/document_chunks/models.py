@@ -1,0 +1,45 @@
+import uuid
+from datetime import datetime
+
+from sqlalchemy import DateTime, ForeignKey, Integer, Text
+from sqlalchemy.dialects.postgresql import UUID
+from pgvector.sqlalchemy import VECTOR
+from sqlalchemy.orm import Mapped, mapped_column
+
+from app.database.base import Base
+
+
+class DocumentChunk(Base):
+    __tablename__ = "document_chunks"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        primary_key=True,
+        default=uuid.uuid4
+    )
+
+    document_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("documents.id"),
+        nullable=False
+    )
+
+    chunk_index: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False
+    )
+
+    content: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+
+    embedding: Mapped[list[float] | None] = mapped_column(
+        VECTOR(3072),
+        nullable=True
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow
+    )

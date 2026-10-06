@@ -1,0 +1,17 @@
+# Local test files
+test.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
