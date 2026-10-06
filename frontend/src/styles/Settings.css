@@ -1,0 +1,94 @@
+.settings-container {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
+
+.settings-card {
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+.settings-card h2 {
+
+    margin-bottom:20px;
+
+    color:#1e293b;
+
+}
+
+
+.settings-card label {
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#64748b;
+
+}
+
+
+.settings-card input[type="text"],
+.settings-card input[type="email"] {
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:8px;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:10px;
+
+}
+
+
+.settings-card button {
+
+    display:block;
+
+    margin-top:15px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+.setting-option {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px 0;
+
+    color:#475569;
+
+}

@@ -1,0 +1,52 @@
+.users-table {
+
+    background:white;
+
+    margin-top:30px;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+.table-header,
+.user-row {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    padding:18px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+
+.table-header {
+
+    font-weight:700;
+
+    color:#2563eb;
+
+}
+
+
+.user-row {
+
+    color:#334155;
+
+}
+
+
+.active {
+
+    color:#16a34a;
+
+    font-weight:600;
+
+}

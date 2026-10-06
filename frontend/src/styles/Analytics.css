@@ -1,0 +1,67 @@
+.analytics-cards {
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
+
+.analytics-card {
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+.analytics-card h2 {
+
+    font-size:40px;
+
+    color:#2563eb;
+
+}
+
+
+.analytics-card p {
+
+    color:#64748b;
+
+}
+
+
+
+.activity-box {
+
+    background:white;
+
+    padding:30px;
+
+    margin-top:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+.activity-box p {
+
+    padding:12px 0;
+
+    border-bottom:1px solid #e5e7eb;
+
+}

@@ -1,12 +1,16 @@
-# Local test files
-test.pdf
+# Environment files
+.env
+*.env
 
 # Python
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
 
-# Environment files
-.env
+# Virtual environments
+venv/
+.venv/
 
 # IDE
 .vscode/
@@ -15,3 +19,15 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Testing
+.pytest_cache/
+
+# Logs
+*.log
+
+# Uploaded files
+uploads/
+
+# Local test files
+test.pdf
